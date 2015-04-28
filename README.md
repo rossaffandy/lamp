@@ -35,3 +35,14 @@ password:vagrant
 
 #Shared Apache Web Folder
 Apache web directory is in synced folder
+
+#Broken Composer
+
+Suppose puppet will execute composer to install bitwasp but somehow it's broken but git manage to clone it.
+
+To manually install bitwasp:
+```
+cd /var/www/html/
+composer require mdanter/ecc
+composer install
+```

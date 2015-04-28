@@ -24,10 +24,10 @@ package {
   require => Exec['apt-get update'],
 }
 
-file { '/home/vagrant/.bash_aliases':
-  ensure => 'present',
-  source => 'puppet:///modules/puphpet/dot/.bash_aliases',
-}
+#file { '/home/vagrant/.bash_aliases':
+#  ensure => 'present',
+#  source => 'puppet:///modules/puphpet/dot/.bash_aliases',
+#}
 
 apt::ppa { 'ppa:ondrej/php5':
   before  => Class['php']
@@ -111,3 +111,23 @@ apache::vhost { 'xhprof':
   priority    => '1',
   require     => Php::Pecl::Module['xhprof']
 }
+
+#bitwasp
+git::repo{'bitwasp':
+     path   => '/var/www/html/bitwasp',
+     source => 'https://github.com/Bit-Wasp/bitcoin-lib-php.git'
+}
+
+#exec {"install bitwasp":
+#  provider => "shell",
+#  command => "bash -c 'cd /var/www/html/bitwasp/ && /usr/bin/composer require mdanter/ecc && /usr/bin/composer install'",
+#  cwd => '/var/www/puphpet.dev/bitwasp/',
+#  timeout => 60,
+#  tries   => 3,
+#  require => Git::Repo['bitwasp']
+#}
+
+#php::composer::run { 'bitwasp':
+#  path    => '/var/www/html/bitwasp/',
+#  require => Git::Repo['bitwasp']
+#}

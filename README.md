@@ -24,7 +24,7 @@ Setup webserver using Puppet
 vagrant provision
 ```
 
-You should now can access blockstrap framework website through http://192.168.56.101/
+You should now can access the website through http://192.168.56.101/
 
 To ssh into the webserver:
 ```

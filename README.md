@@ -42,7 +42,7 @@ Suppose puppet will execute composer to install bitwasp but somehow it's broken 
 
 To manually install bitwasp:
 ```
-cd /var/www/html/
+cd /var/www/html/bitwasp
 composer require mdanter/ecc
 composer install
 ```
